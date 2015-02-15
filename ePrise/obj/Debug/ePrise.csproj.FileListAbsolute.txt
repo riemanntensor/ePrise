@@ -1,0 +1,19 @@
+C:\Users\Christian\AppData\Local\Temporary Projects\ePrise\bin\Debug\ePrise.exe.config
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\ePrise.exe.config
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\ePrise.exe
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\ePrise.pdb
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.csprojResolveAssemblyReference.cache
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\MainWindow.baml
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\MainWindow.g.cs
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\App.g.cs
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise_MarkupCompile.cache
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.g.resources
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.Properties.Resources.resources
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.csproj.GenerateResource.Cache
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.exe
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.pdb
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramework.dll
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramework.xml
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise_Content.g.cs

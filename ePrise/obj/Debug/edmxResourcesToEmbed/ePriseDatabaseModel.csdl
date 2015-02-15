@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ePriseDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ePriseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Items" EntityType="ePriseDatabaseModel.Item" />
+    <EntitySet Name="Customers" EntityType="ePriseDatabaseModel.Customer" />
+    <EntitySet Name="Sales" EntityType="ePriseDatabaseModel.Sale" />
+    <EntitySet Name="Vendors" EntityType="ePriseDatabaseModel.Vendor" />
+    <AssociationSet Name="SaleCustomer" Association="ePriseDatabaseModel.SaleCustomer">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="SaleItem" Association="ePriseDatabaseModel.SaleItem">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="ItemVendor" Association="ePriseDatabaseModel.ItemVendor">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" Nullable="false" />
+    <Property Name="ItemCost" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Item" ToRole="Sale" />
+    <NavigationProperty Name="Vendor" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Item" ToRole="Vendor" />
+    <Property Name="VendorVendorId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerFirstName" Type="String" Nullable="false" />
+    <Property Name="CustomerLastName" Type="String" Nullable="false" />
+    <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Customer" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemSalePrice" Type="String" Nullable="false" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Sale" ToRole="Customer" />
+    <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Sale" ToRole="Item" />
+    <Property Name="ItemItemId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorName" Type="String" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Vendor" ToRole="Item" />
+  </EntityType>
+  <Association Name="SaleCustomer">
+    <End Type="ePriseDatabaseModel.Sale" Role="Sale" Multiplicity="*" />
+    <End Type="ePriseDatabaseModel.Customer" Role="Customer" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="CustomerCustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SaleItem">
+    <End Type="ePriseDatabaseModel.Sale" Role="Sale" Multiplicity="*" />
+    <End Type="ePriseDatabaseModel.Item" Role="Item" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="ItemItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemVendor">
+    <End Type="ePriseDatabaseModel.Item" Role="Item" Multiplicity="*" />
+    <End Type="ePriseDatabaseModel.Vendor" Role="Vendor" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="VendorId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="VendorVendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
