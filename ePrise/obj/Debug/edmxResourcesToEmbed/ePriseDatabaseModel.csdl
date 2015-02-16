@@ -37,15 +37,19 @@
     <Property Name="CustomerFirstName" Type="String" Nullable="false" />
     <Property Name="CustomerLastName" Type="String" Nullable="false" />
     <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Customer" ToRole="Sale" />
+    <Property Name="CustomerAddress" Type="String" Nullable="true" />
+    <Property Name="CustomerZip" Type="Int16" Nullable="true" />
   </EntityType>
   <EntityType Name="Sale">
     <Key>
       <PropertyRef Name="SaleId" />
     </Key>
     <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ItemSalePrice" Type="String" Nullable="false" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" />
     <Property Name="SaleDate" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Sale" ToRole="Customer" />
+    <Property Name="SaleProfit" Type="Decimal" Nullable="false" />
+    <Property Name="SaleLocation" Type="String" Nullable="false" />
     <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Item" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Sale" ToRole="Item" />
     <Property Name="ItemItemId" Type="Int32" Nullable="false" />
@@ -57,6 +61,8 @@
     <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="VendorName" Type="String" Nullable="false" />
     <NavigationProperty Name="Items" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Vendor" ToRole="Item" />
+    <Property Name="VendorAddress" Type="String" Nullable="true" />
+    <Property Name="VendorZip" Type="Int16" Nullable="true" />
   </EntityType>
   <Association Name="SaleCustomer">
     <End Type="ePriseDatabaseModel.Sale" Role="Sale" Multiplicity="*" />

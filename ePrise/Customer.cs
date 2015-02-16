@@ -22,6 +22,8 @@ namespace ePrise
         public int CustomerId { get; set; }
         public string CustomerFirstName { get; set; }
         public string CustomerLastName { get; set; }
+        public string CustomerAddress { get; set; }
+        public Nullable<short> CustomerZip { get; set; }
     
         public virtual ICollection<Sale> Sales { get; set; }
     }

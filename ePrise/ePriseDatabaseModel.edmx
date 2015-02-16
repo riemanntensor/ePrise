@@ -39,14 +39,18 @@
     <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerFirstName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CustomerLastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CustomerZip" Type="smallint" Nullable="true" />
   </EntityType>
   <EntityType Name="Sales">
     <Key>
       <PropertyRef Name="SaleId" />
     </Key>
     <Property Name="SaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ItemSalePrice" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SalePrice" Type="decimal" Nullable="false" />
     <Property Name="SaleDate" Type="datetime" Nullable="false" />
+    <Property Name="SaleProfit" Type="decimal" Nullable="false" />
+    <Property Name="SaleLocation" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CustomerCustomerId" Type="int" Nullable="false" />
     <Property Name="ItemItemId" Type="int" Nullable="false" />
   </EntityType>
@@ -56,6 +60,8 @@
     </Key>
     <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="VendorName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VendorAddress" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VendorZip" Type="smallint" Nullable="true" />
   </EntityType>
   <Association Name="SaleCustomer">
     <End Role="Sale" Type="ePriseDatabaseModel.Store.Sales" Multiplicity="*" />
@@ -134,15 +140,19 @@
           <Property Name="CustomerFirstName" Type="String" Nullable="false" />
           <Property Name="CustomerLastName" Type="String" Nullable="false" />
           <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Customer" ToRole="Sale" />
+          <Property Name="CustomerAddress" Type="String" Nullable="true" />
+          <Property Name="CustomerZip" Type="Int16" Nullable="true" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
             <PropertyRef Name="SaleId" />
           </Key>
           <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemSalePrice" Type="String" Nullable="false" />
+          <Property Name="SalePrice" Type="Decimal" Nullable="false" />
           <Property Name="SaleDate" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Sale" ToRole="Customer" />
+          <Property Name="SaleProfit" Type="Decimal" Nullable="false" />
+          <Property Name="SaleLocation" Type="String" Nullable="false" />
           <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Item" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Sale" ToRole="Item" />
           <Property Name="ItemItemId" Type="Int32" Nullable="false" />
@@ -154,6 +164,8 @@
           <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VendorName" Type="String" Nullable="false" />
           <NavigationProperty Name="Items" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Vendor" ToRole="Item" />
+          <Property Name="VendorAddress" Type="String" Nullable="true" />
+          <Property Name="VendorZip" Type="Int16" Nullable="true" />
         </EntityType>
         <Association Name="SaleCustomer">
           <End Type="ePriseDatabaseModel.Sale" Role="Sale" Multiplicity="*" />
@@ -213,6 +225,8 @@
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="CustomerFirstName" ColumnName="CustomerFirstName" />
           <ScalarProperty Name="CustomerLastName" ColumnName="CustomerLastName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerZip" ColumnName="CustomerZip" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -220,8 +234,10 @@
       <EntityTypeMapping TypeName="IsTypeOf(ePriseDatabaseModel.Sale)">
         <MappingFragment StoreEntitySet="Sales">
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
-          <ScalarProperty Name="ItemSalePrice" ColumnName="ItemSalePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
           <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="SaleProfit" ColumnName="SaleProfit" />
+          <ScalarProperty Name="SaleLocation" ColumnName="SaleLocation" />
           <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
           <ScalarProperty Name="ItemItemId" ColumnName="ItemItemId" />
         </MappingFragment>
@@ -232,6 +248,8 @@
         <MappingFragment StoreEntitySet="Vendors">
           <ScalarProperty Name="VendorId" ColumnName="VendorId" />
           <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="VendorZip" ColumnName="VendorZip" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

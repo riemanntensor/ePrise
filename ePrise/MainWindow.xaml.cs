@@ -24,5 +24,15 @@ namespace ePrise
         {
             InitializeComponent();
         }
+
+        private void btnSales_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

@@ -15,8 +15,10 @@ namespace ePrise
     public partial class Sale
     {
         public int SaleId { get; set; }
-        public string ItemSalePrice { get; set; }
+        public decimal SalePrice { get; set; }
         public System.DateTime SaleDate { get; set; }
+        public decimal SaleProfit { get; set; }
+        public string SaleLocation { get; set; }
         public int CustomerCustomerId { get; set; }
         public int ItemItemId { get; set; }
     

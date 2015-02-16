@@ -17,6 +17,8 @@
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="CustomerFirstName" ColumnName="CustomerFirstName" />
           <ScalarProperty Name="CustomerLastName" ColumnName="CustomerLastName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerZip" ColumnName="CustomerZip" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -24,8 +26,10 @@
       <EntityTypeMapping TypeName="IsTypeOf(ePriseDatabaseModel.Sale)">
         <MappingFragment StoreEntitySet="Sales">
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
-          <ScalarProperty Name="ItemSalePrice" ColumnName="ItemSalePrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
           <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="SaleProfit" ColumnName="SaleProfit" />
+          <ScalarProperty Name="SaleLocation" ColumnName="SaleLocation" />
           <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
           <ScalarProperty Name="ItemItemId" ColumnName="ItemItemId" />
         </MappingFragment>
@@ -36,6 +40,8 @@
         <MappingFragment StoreEntitySet="Vendors">
           <ScalarProperty Name="VendorId" ColumnName="VendorId" />
           <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="VendorZip" ColumnName="VendorZip" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

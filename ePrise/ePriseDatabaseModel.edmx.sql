@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/13/2015 16:20:12
+-- Date Created: 02/15/2015 15:15:55
 -- Generated from EDMX file: C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\ePriseDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,32 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_SaleCustomer]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Sales] DROP CONSTRAINT [FK_SaleCustomer];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SaleItem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Sales] DROP CONSTRAINT [FK_SaleItem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ItemVendor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Items] DROP CONSTRAINT [FK_ItemVendor];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Items]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Items];
+GO
+IF OBJECT_ID(N'[dbo].[Customers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Customers];
+GO
+IF OBJECT_ID(N'[dbo].[Sales]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Sales];
+GO
+IF OBJECT_ID(N'[dbo].[Vendors]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Vendors];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -40,15 +61,19 @@ GO
 CREATE TABLE [dbo].[Customers] (
     [CustomerId] int IDENTITY(1,1) NOT NULL,
     [CustomerFirstName] nvarchar(max)  NOT NULL,
-    [CustomerLastName] nvarchar(max)  NOT NULL
+    [CustomerLastName] nvarchar(max)  NOT NULL,
+    [CustomerAddress] nvarchar(max)  NULL,
+    [CustomerZip] smallint  NULL
 );
 GO
 
 -- Creating table 'Sales'
 CREATE TABLE [dbo].[Sales] (
     [SaleId] int IDENTITY(1,1) NOT NULL,
-    [ItemSalePrice] nvarchar(max)  NOT NULL,
+    [SalePrice] decimal(18,0)  NOT NULL,
     [SaleDate] datetime  NOT NULL,
+    [SaleProfit] decimal(18,0)  NOT NULL,
+    [SaleLocation] nvarchar(max)  NOT NULL,
     [CustomerCustomerId] int  NOT NULL,
     [ItemItemId] int  NOT NULL
 );
@@ -57,7 +82,9 @@ GO
 -- Creating table 'Vendors'
 CREATE TABLE [dbo].[Vendors] (
     [VendorId] int IDENTITY(1,1) NOT NULL,
-    [VendorName] nvarchar(max)  NOT NULL
+    [VendorName] nvarchar(max)  NOT NULL,
+    [VendorAddress] nvarchar(max)  NULL,
+    [VendorZip] smallint  NULL
 );
 GO
 

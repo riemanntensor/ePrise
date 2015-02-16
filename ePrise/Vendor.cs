@@ -21,6 +21,8 @@ namespace ePrise
     
         public int VendorId { get; set; }
         public string VendorName { get; set; }
+        public string VendorAddress { get; set; }
+        public Nullable<short> VendorZip { get; set; }
     
         public virtual ICollection<Item> Items { get; set; }
     }
