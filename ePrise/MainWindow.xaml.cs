@@ -34,5 +34,14 @@ namespace ePrise
         {
             Application.Current.Shutdown();
         }
+
+        private void btnInventory_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryWindow i = new InventoryWindow(this);
+            this.Hide();
+            i.Show();           
+        }
+
+
     }
 }
