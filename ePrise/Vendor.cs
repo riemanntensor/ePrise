@@ -10,13 +10,13 @@
 namespace ePrise
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class Vendor
     {
         public Vendor()
         {
-            this.Items = new HashSet<Item>();
+            this.Items = new ObservableCollection<Item>();
         }
     
         public int VendorId { get; set; }
@@ -24,6 +24,6 @@ namespace ePrise
         public string VendorAddress { get; set; }
         public Nullable<short> VendorZip { get; set; }
     
-        public virtual ICollection<Item> Items { get; set; }
+        public virtual ObservableCollection<Item> Items { get; set; }
     }
 }

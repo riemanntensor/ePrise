@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/15/2015 15:15:55
+-- Date Created: 02/26/2015 23:38:05
 -- Generated from EDMX file: C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\ePriseDatabaseModel.edmx
 -- --------------------------------------------------
 
