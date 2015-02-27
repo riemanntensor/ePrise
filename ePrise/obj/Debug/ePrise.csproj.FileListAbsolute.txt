@@ -20,3 +20,4 @@ C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramewo
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.exe
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.pdb
+C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.csprojResolveAssemblyReference.cache
