@@ -20,4 +20,3 @@ C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.Proper
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.csproj.GenerateResource.Cache
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.exe
 C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.pdb
-C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\obj\Debug\ePrise.csprojResolveAssemblyReference.cache
