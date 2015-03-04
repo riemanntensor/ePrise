@@ -23,8 +23,8 @@
       <PropertyRef Name="ItemId" />
     </Key>
     <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ItemName" Type="String" Nullable="false" />
-    <Property Name="ItemCost" Type="Decimal" Nullable="false" />
+    <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ItemCost" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
     <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Item" ToRole="Sale" />
     <NavigationProperty Name="Vendor" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Item" ToRole="Vendor" />
     <Property Name="VendorVendorId" Type="Int32" Nullable="false" />
@@ -34,10 +34,10 @@
       <PropertyRef Name="CustomerId" />
     </Key>
     <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerFirstName" Type="String" Nullable="false" />
-    <Property Name="CustomerLastName" Type="String" Nullable="false" />
+    <Property Name="CustomerFirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerLastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Sales" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Customer" ToRole="Sale" />
-    <Property Name="CustomerAddress" Type="String" Nullable="true" />
+    <Property Name="CustomerAddress" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="CustomerZip" Type="Int16" Nullable="true" />
   </EntityType>
   <EntityType Name="Sale">
@@ -45,23 +45,24 @@
       <PropertyRef Name="SaleId" />
     </Key>
     <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SalePrice" Type="Decimal" Nullable="false" />
-    <Property Name="SaleDate" Type="DateTime" Nullable="false" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Customer" Relationship="ePriseDatabaseModel.SaleCustomer" FromRole="Sale" ToRole="Customer" />
-    <Property Name="SaleProfit" Type="Decimal" Nullable="false" />
-    <Property Name="SaleLocation" Type="String" Nullable="false" />
+    <Property Name="SaleProfit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="SaleLocation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Item" Relationship="ePriseDatabaseModel.SaleItem" FromRole="Sale" ToRole="Item" />
     <Property Name="ItemItemId" Type="Int32" Nullable="false" />
+    <Property Name="ItemSalePrice" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Vendor">
     <Key>
       <PropertyRef Name="VendorId" />
     </Key>
     <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VendorName" Type="String" Nullable="false" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Items" Relationship="ePriseDatabaseModel.ItemVendor" FromRole="Vendor" ToRole="Item" />
-    <Property Name="VendorAddress" Type="String" Nullable="true" />
+    <Property Name="VendorAddress" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="VendorZip" Type="Int16" Nullable="true" />
   </EntityType>
   <Association Name="SaleCustomer">

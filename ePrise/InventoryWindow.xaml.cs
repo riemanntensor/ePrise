@@ -42,9 +42,17 @@ namespace ePrise
             previousWindow.Show();
         }
 
+        //Testing the database to query--Code will not go in this position
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
+            using (var context = new ePriseContext()) {
 
+                var itemList = context.Items.ToList<Item>();
+                context.Items.Add(new Item() { ItemName = "Mouse Pad" });
+
+
+            
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

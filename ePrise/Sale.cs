@@ -21,6 +21,7 @@ namespace ePrise
         public string SaleLocation { get; set; }
         public int CustomerCustomerId { get; set; }
         public int ItemItemId { get; set; }
+        public string ItemSalePrice { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Item Item { get; set; }

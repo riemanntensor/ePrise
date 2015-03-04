@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/26/2015 23:38:05
+-- Date Created: 02/27/2015 00:28:52
 -- Generated from EDMX file: C:\Users\Christian\Documents\GitHub\ePrise\ePrise\ePrise\ePriseDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -17,25 +17,25 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ItemVendor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Items] DROP CONSTRAINT [FK_ItemVendor];
+GO
 IF OBJECT_ID(N'[dbo].[FK_SaleCustomer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Sales] DROP CONSTRAINT [FK_SaleCustomer];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SaleItem]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Sales] DROP CONSTRAINT [FK_SaleItem];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ItemVendor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Items] DROP CONSTRAINT [FK_ItemVendor];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Items]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Items];
-GO
 IF OBJECT_ID(N'[dbo].[Customers]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Customers];
+GO
+IF OBJECT_ID(N'[dbo].[Items]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Items];
 GO
 IF OBJECT_ID(N'[dbo].[Sales]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Sales];
@@ -75,7 +75,8 @@ CREATE TABLE [dbo].[Sales] (
     [SaleProfit] decimal(18,0)  NOT NULL,
     [SaleLocation] nvarchar(max)  NOT NULL,
     [CustomerCustomerId] int  NOT NULL,
-    [ItemItemId] int  NOT NULL
+    [ItemItemId] int  NOT NULL,
+    [ItemSalePrice] nvarchar(max)  NOT NULL
 );
 GO
 
