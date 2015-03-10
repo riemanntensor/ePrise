@@ -12,7 +12,8 @@
         <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="227,369,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="btnExit_Click"/>
         <Label x:Name="lblInventory" Content="Inventory" HorizontalAlignment="Left" Margin="286,40,0,0" VerticalAlignment="Top" FontSize="18" Grid.ColumnSpan="3"/>
         <ListBox x:Name="lstInventory" HorizontalAlignment="Left" Height="238" Margin="80,101,0,0" VerticalAlignment="Top" Width="330" Grid.ColumnSpan="3"/>
-        <Button x:Name="btnAddItem" Content="Add Item" HorizontalAlignment="Left" Margin="167,138,0,0" VerticalAlignment="Top" Width="113" Height="24" Click="btnAddItem_Click" Grid.Column="2"/>
+        <Button x:Name="btnAddVendor" Content="Add Vendor" HorizontalAlignment="Left" Margin="167,138,0,0" VerticalAlignment="Top" Width="113" Height="24" Click="btnAddItem_Click" Grid.Column="2"/>
+        <Button x:Name="btnAddItem" Content="Add Item" Grid.Column="2" HorizontalAlignment="Left" Margin="167,192,0,0" VerticalAlignment="Top" Width="113" Height="26" Click="btnAddItem_Click_1"/>
 
     </Grid>
 </Window>

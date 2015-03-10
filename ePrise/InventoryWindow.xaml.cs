@@ -27,6 +27,14 @@ namespace ePrise
             InitializeComponent();
         }
 
+        void OnLoad(object sender, RoutedEventArgs e)
+        {
+            using (var context = new ePriseContext())
+            {
+
+            }
+        }
+
         //overload the InventoryWindow method to take a parameter of the last window shown
         public InventoryWindow(Window window)
         {
@@ -45,11 +53,20 @@ namespace ePrise
         //Testing the database to query--Code will not go in this position
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
+            var newVendor = new Vendor();
+
+            newVendor.VendorName = "publix";
+
             using (var context = new ePriseContext()) {
 
-                var itemList = context.Items.ToList<Item>();
-                context.Items.Add(new Item() { ItemName = "Mouse Pad" });
+                //add student object into students dbset
+                context.Vendors.Add(newVendor);
 
+                //add newItem entity into context and mark Entitystate Added
+                //context.Entry(newVendor).State = System.Data.Entity.EntityState.Added;
+
+                //execute queries in the database
+                context.SaveChanges();
 
             
             }
@@ -58,6 +75,21 @@ namespace ePrise
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnAddItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            var newItem = new Item();
+
+            newItem.ItemName = "mouse pad";
+            newItem.ItemCost = 5;
+            newItem.VendorVendorId = 1;
+
+            using (var context = new ePriseContext())
+            {
+                context.Items.Add(newItem);
+                context.SaveChanges();
+            }
         }
     }
 }
