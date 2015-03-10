@@ -74,7 +74,7 @@ namespace ePrise
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void btnAddItem_Click_1(object sender, RoutedEventArgs e)

@@ -32,11 +32,13 @@ namespace ePrise
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            //exit and shutdown application
             Application.Current.Shutdown();
         }
 
         private void btnInventory_Click(object sender, RoutedEventArgs e)
         {
+            //send the current window as an argument. This is to utilize the back button in the new window, initializing the window that the user just left from.
             InventoryWindow i = new InventoryWindow(this);
             this.Hide();
             i.Show();           
